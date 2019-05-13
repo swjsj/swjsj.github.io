@@ -1,94 +1,78 @@
-## Phantom for Jekyll
+![](https://raw.githubusercontent.com/kkninjae/book/master/github/hero.png)
 
-A minimalist, responsive portfolio theme for [Jekyll](http://jekyllrb.com/) with Bootstrap.
 
-![preview](preview.jpg)
+# Book
 
-[See it in action](http://jamigibbs.github.io/phantom/).
+Book, a simple and ready-to-use Jekyll theme. [Live](http://kkninjae.github.io/book/).
 
-## Fancy using it for your own site?
 
-Here are some steps to get you started:
+## How-to
 
-1. Clone this repo and cd into the directory:
+*   [Setup](#setup)
+*   [Customization](#customization)
+*   [Writing Posts](#writing-posts)
+*   [Deploy to Github Page](#deploy-to-gh-pages)
 
-  ```bash
-  git clone https://github.com/jamigibbs/phantom.git your-dir-name && cd your-dir-name
-  ```
 
-2. Run Jekyll:
+### <a name="setup" id>Setup</a>
 
-  ```bash
-  bundle exec jekyll serve
-  ```
+```sh
+# get a copy of book source code
+$ git clone https://github.com/kkninjae/book.git
 
-  _Don't have Jekyll yet? [Get `er installed then!](http://jekyllrb.com/docs/installation/)_
+# running site locally
+$ jekyll serve -w
 
-3. Visit in your browser at:
-
-  `http://127.0.0.1:4000`
-
-## Launching with Github Pages :rocket:
-
-Jekyll + Github pages is a marriage made in heaven. You can [use your own custom domain name](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/) or use the default Github url (ie. http://username.github.io/repository) and not bother messing around with DNS settings.
-
-## Theme Features
-
-### Navigation
-
-Navigation can be customized in `_config.yml` under the `nav_item` key. Default settings:
-
-```yaml
-nav_item:
-    - { url: '/', text: 'Home' }
-    - { url: '/about', text: 'About' }
+# from now, you should be able to start development or customization
 ```
 
-Set the `nav_enable` variable to false in `_config.yml` to disable navigation.
 
-### Contact Form
+### <a name="customization">Customization</a>
 
-You can display a contact form within the modal window template. This template is already setup to use the [Formspree](https://formspree.io) email system. You'll just want to add your email address to the form in `/_includes/contact-modal.html`.
+Book is designed as simple as possible, but few changes can make your site uniq.
+You only need to change the values of keys in `_config.yml` file.
 
-Place the modal window template in any place you'd like the user to click for the contact form.
-The template will display a link to click for the contact form modal window:
+*   Change site path: `baseurl`
+*   Give your site a name: `title`
+*   Make a site favicon: `favicon`
+*   Make a special home button image: `avatar`
 
-```liquid
-{% include contact.html %}
-{% include contact-modal.html %}
+
+Last but not least
+
+*   If you are using Google analytics: `ga`
+*   If you are using Disqus commenting system: `disqus`
+
+
+### <a name="writing-posts">Writing Posts</a>
+
+Make a markdown file in `_posts` directory,
+follow [Jekyll post naming convention](https://jekyllrb.com/docs/posts/) to name your post,
+and put following front matter to the top of your post.
+You should be able to start to write your awesome post.
+Read this [POST](https://kkninjae.github.io/book/2015/08/28/how-to-use-book.html) to know more tips.
+
+```markdown
+---
+title: Your awesome post title
+date: YYYY-MM-DD
+---
 ```
 
-### Animation Effects
 
-Animations with CSS classes are baked into the theme. To animate a section or element, simply add the animation classes:
+### <a name="deploy-to-gh-pages">Deploy to Github Page</a>
 
-```html
-<div id="about-me" class="wow fadeIn">
-  I'm the coolest!
-</div>
+There is a deploying script built out of box.
+You need to install one more tool before using it which is [npm](https://www.npmjs.com/get-npm).
+This script will push your current static site to `gh-pages` branch.
+If there is no `gh-pages` branch yet, the script will create it for you.
+
+```sh
+# start to deploy your site to Github pages
+$ npm run deploy
 ```
 
-For a complete list of animations, see the [animation list](http://daneden.github.io/animate.css/).
 
-### Pagination
+## End.
 
-By default, pagination on the home page will activate after 10 posts. You can change this within `_config.yml`. You can add the pagination to other layouts with:
-
-```liquid
-  {% for post in paginator.posts %}
-    {% include post-content.html %}
-  {% endfor %}
-
-  {% include pagination.html %}
-```
-
-Read more about the [pagination plugin](http://jekyllrb.com/docs/pagination/).
-
-## Credit
-
-* Bootstrap, http://getbootstrap.com/, (C) 2011 - 2016 Twitter, Inc., [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
-
-* Wow, https://github.com/matthieua/WOW, (C) 2014 - 2016 Matthieu Aussaguel
-, [GPL](https://github.com/matthieua/WOW#open-source-license)
-
-* Animate.css, https://github.com/daneden/animate.css, (C) 2016 Daniel Eden, [MIT](https://github.com/daneden/animate.css/blob/master/LICENSE)
+If you like this theme, why not give it a star. :)
